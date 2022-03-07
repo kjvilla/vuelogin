@@ -1,3 +1,6 @@
 <template>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum aliquid et unde ullam harum esse vel minus reprehenderit reiciendis, cum repudiandae dolorum asperiores eveniet deleniti nam consequatur doloremque incidunt explicabo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit quae cumque eaque tempore laudantium aut molestias assumenda consequuntur ea quas asperiores delectus, voluptates qui laborum voluptas. Delectus saepe omnis aut. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores doloremque aspernatur, porro nostrum magni debitis soluta suscipit asperiores dolores placeat odit qui nam ab quod ullam nihil temporibus autem unde!</p>
+<div class ="flex flex-col space-y-4 items-center justify-center min-h-screen-nonav">
+    <h2 class="text-6xl tracking-tighter font-extralight">WEEeeee!</h2> 
+ <img src="../assets/bgsecrets.png" alt="Hello BG" >
+ </div>
 </template>
