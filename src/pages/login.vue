@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import useAuth from "../useAuth";
-import useError from "../useError";
+import useAuth from "../composables/useAuth";
+import useError from "../composables/useError";
 
 const { isAuthenticated, login } = useAuth();
 
@@ -12,8 +12,8 @@ const password = ref("");
 const router = useRouter(); 
 
 
-const logginIn = () => {
-    login(username.value, password.value);
+const logginIn = async () => {
+    await login(username.value, password.value);
     if (isAuthenticated.value) {
         router.push("/");
     } else {
@@ -26,7 +26,7 @@ const { error, setError } = useError();
 
 <template>
     <div class ="flex flex-col space-y-12 items-center justify-center min-h-screen-nonav">
-        Logged in: {{isAuthenticated}} 
+         
         <div class="flex items-center justify-center bg-gray-200 overflow-hidden rounded-lg shadow-2xl">
             <img class="h-64" src="../assets/bglogin.png" alt="Hello BG" >
             <form @submit.prevent="logginIn" class="flex flex-col space-y-4 p-4">
