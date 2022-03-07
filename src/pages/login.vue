@@ -4,7 +4,7 @@ import { useRouter } from "vue-router";
 import useAuth from "../composables/useAuth";
 import useError from "../composables/useError";
 
-const { isAuthenticated, login } = useAuth();
+const { isAuthenticated, login, signup } = useAuth();
 
 const username = ref("");
 const password = ref("");
@@ -14,6 +14,15 @@ const router = useRouter();
 
 const logginIn = async () => {
     await login(username.value, password.value);
+    goToHome();
+};
+
+const signingUp = async () => {
+    await signup(username.value, password.value);
+    goToHome();
+};
+
+const goToHome = () => {
     if (isAuthenticated.value) {
         router.push("/");
     } else {
@@ -34,7 +43,10 @@ const { error, setError } = useError();
                 v-model="username">
                 <input type="password" class="p-2 border-2 rounded-lg" placeholder="Password"
                 v-model="password">
-                <button type="submit" @submit.prevent="logginIn" class="py-2 rounded-lg bg-purple-500 font-bold" >Login</button>
+                <div class="flex space-x-2">
+                <button type="submit" @submit.prevent="logginIn" class="w-1/2 py-2 rounded-lg bg-rose-500 font-bold" >Login</button>
+                <button @click="signingUp" class="w-1/2 py-2 rounded-lg bg-yellow-500 font-bold" >Sign Up</button>
+                </div>
                 </form>  
         </div>
         <div v-if="error" class="absolute w-1/3 p-4 text-center text-red-800 bg-red-300 rounded-lg bottom-2 right-2">{{ error }}</div>
